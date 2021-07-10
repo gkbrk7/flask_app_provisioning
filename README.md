@@ -58,7 +58,7 @@ pip install gunicorn flask
 ```
 > Create a sample app and expose 5000 port to stream website on gunicorn and configure firewall settings with respect to 5000 port
 ```bash
-    cat >> ${APPNAME}.py <<EOL
+cat >> ${APPNAME}.py <<EOL
 from flask import Flask
 app = Flask(__name__)
 
@@ -89,7 +89,7 @@ deactivate
 # Flask App Deployment
 > We want to expose the flask app as a service on linux and configure as a reverse proxy with the nginx to reach the website. After configuration of service start service with systemctl and enable it.
 ```bash
-    cat >> /etc/systemd/system/${APPNAME}.service <<EOL
+cat >> /etc/systemd/system/${APPNAME}.service <<EOL
 [Unit]
 Description=Gunicorn instance to serve ${APPNAME}
 After=network.target
