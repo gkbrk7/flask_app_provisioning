@@ -46,26 +46,15 @@ activate_virtualenv(){
 
 configure_flask(){
     step "===== Configuring flask and gunicorn ====="
-    git clone https://github.com/gkbrk7/flask_app_provisioning.git
-    mv flask_app_provisioning/src/* .
     pip install wheel
     pip install gunicorn flask
     cat >> ${APPNAME}.py <<EOL
-from flask import Flask, render_template
+from flask import Flask
 app = Flask(__name__)
-
-data=[
-    {
-        'fullname':'Gökberk Yıldırım',
-        'description': 'DevOps and Linux Lover ♥',
-        'link': 'Click here	to see the solution of the case study',
-        'copyright' : 'Thanks for everything.'
-    }
-]
 
 @app.route("/")
 def hello():
-    return render_template('index.html', data=data)
+    return "<h1 style='color:blue'>Hello My name is Gokberk YILDIRIM. <br> I am DevOps and Linux Lover... ♥</h1>"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
