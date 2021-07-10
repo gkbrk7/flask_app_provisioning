@@ -1,0 +1,1 @@
+Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n192.168.2.15`tflaskapp.local" -Force
